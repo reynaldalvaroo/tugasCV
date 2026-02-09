@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Reynald</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-color: #667eea;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --bg-body: #f8f9fa;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 12px 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent-color); }
+
+        .hero {
+            background: var(--primary-gradient);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -100px auto 50px;
+            background: white;
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .profile-wrapper {
+            text-align: center;
+            margin-top: -120px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 6px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 15px 0 5px; font-size: 2.2rem; letter-spacing: -1px; }
+        .subtitle { color: var(--accent-color); font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            background: #f1f2f6;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item { font-size: 0.85rem; color: var(--text-muted); text-align: center; }
+
+        section { margin-bottom: 50px; }
+        h2 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        h2::after {
+            content: "";
+            height: 2px;
+            flex: 1;
+            background: #eee;
+        }
+
+        .item { margin-bottom: 25px; position: relative; padding-left: 20px; border-left: 2px solid #eee; }
+        .item::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .item h3 { margin: 0; font-size: 1.15rem; color: #2d3436; }
+        .meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--accent-color); font-weight: 600; margin-bottom: 5px; }
+
+        .project-img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-img:hover {
+            transform: scale(1.02);
+        }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: #edf2ff;
+            color: #4c6ef5;
+            padding: 8px 18px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .skill-tag:hover { background: var(--accent-color); color: white; transform: translateY(-3px); }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.02);
+        }
+
+        footer { text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.8rem; }
+
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; margin: -80px 15px 30px; }
+            h1 { font-size: 1.8rem; }
+            nav { width: 95%; font-size: 0.65rem; padding: 12px 10px; }
+            .meta { flex-direction: column; }
+            .project-img { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#organization">Organization</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact Me</a>
+    </nav>
+
+    <div class="hero">
+        <div>
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;">Curriculum Vitae</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="profile-wrapper">
+            <img src="PotoPropil.jpeg" alt="Reynald Alvaro" class="profile-img">
+            <h1>Reynald Alvaro Pasaribu</h1>
+            <p class="subtitle">Information Technology Student</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">📧 reynaldalvaro@gmail.com</div>
+                <div class="contact-item">📱 +62 812 3456 7890</div>
+                <div class="contact-item">📍 Medan, Indonesia</div>
+                <div class="contact-item">🔗 github.com/reynald</div>
+            </div>
+        </div>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi everyone, let me introduce myself. I'm Reynald, a second-semester Information Technology student at USU. In this second semester, I want to focus on becoming a full-stack developer so I can create websites independently. I also want to expand my knowledge by learning new programming languages.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="item">
+                <div class="meta">
+                    <span>Universitas Sumatera Utara (USU)</span>
+                    <span>2025 — Sekarang</span>
+                </div>
+                <p>Semester 2. Fokus menjadi fullstack developer dan membuat web.</p>
+            </div>
+            <div class="item">
+                <div class="meta">
+                    <span>SMA Santo Thomas 1 Medan</span>
+                    <span>2022-2025</span>
+                </div>
+                <p>Aktif dalam ekskul band dan nilai memuaskan.</p>
+            </div>
+            <div class="item">
+                <div class="meta">
+                    <span>SMP Santo Yoseph Pemuda</span>
+                    <span>2019-2022</span>
+                </div>
+                <p>Mengikuti organisasi OSIS dan ikut lomba di bidang informatika.</p>
+            </div>
+        </section>
+
+        <section id="organization">
+            <h2>Organization</h2>
+            <div class="item">
+                <div class="meta">
+                    <span>Menjadi Wakil Ketua Osis</span>
+                    <span>2021</span>
+                </div>
+                <p>Membantu Ketua OSIS dalam merencanakan, mengatur, dan mengawasi seluruh kegiatan organisasi.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="item">
+                <h3>Frontend Web E-commerce</h3>
+                <p>Web app berbasis HTML, CSS, Javascript dan MySQL yang dapat membantu masyarakat untuk memesan hotel dari web kami.</p>
+                <img src="Web.jpeg" alt="Web Project" class="project-img">
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Javascript</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Music</span>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Ingin berdiskusi bersama, silahkan kirim pesan yaa.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="5" placeholder="Your Message." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Reynald Alvaro Pasaribu
+    </footer>
+
+</body>
+</html>
